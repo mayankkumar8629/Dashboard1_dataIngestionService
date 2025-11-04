@@ -11,7 +11,7 @@ async def lifespan(app: FastAPI):
     await init_db_pool()
     print("✅ Database initialized at startup.")
 
-    yield  # <-- Application runs while this context is active
+    yield 
 
     # Shutdown
     await close_db_pool()
@@ -43,3 +43,5 @@ async def health_check():
 @app.get("/")
 def home():
     return {"message": "🚀 FastAPI Data Ingestion Service Running ✅"}
+
+
